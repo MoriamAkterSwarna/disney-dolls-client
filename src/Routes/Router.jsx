@@ -5,7 +5,8 @@ import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Blog from "../Pages/Blog/Blog";
 import Banner from "../Pages/Banner/Banner";
-import AddToy from "../Pages/Register/AddToy";
+import AddToy from "../Pages/AddToy/AddToy";
+
 
 
 
