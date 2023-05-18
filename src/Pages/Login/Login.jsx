@@ -11,6 +11,7 @@ const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
 
+    setErrors('')
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -75,8 +76,8 @@ const handleGithubSignIn = () =>{
             <div>
                         <p className='font-bold ml-6'>Sign in with: </p>
                     <div className='text-center'>
-                    <button className="btn btn-primary hover:bg-pink-700 mr-1" ><Link><FaGoogle  className='text-white'/></Link></button>
-                    <button  className="btn btn-primary hover:bg-pink-700" ><Link><FaGithub  className='text-white'/></Link></button>
+                    <button className="btn btn-primary hover:bg-pink-700 mr-1" onClick={handleGoogleSignIn}><Link><FaGoogle  className='text-white'/></Link></button>
+                    <button  className="btn btn-primary hover:bg-pink-700" onClick={handleGithubSignIn} ><Link><FaGithub  className='text-white'/></Link></button>
                     </div>
                     <div className="divider mb-0">OR</div>
             </div>

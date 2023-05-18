@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiBars3CenterLeft, HiOutlineXMark } from "react-icons/hi2";
 import logo from '../assets/logo.png'
+import { AuthContext } from "../Provider/AuthProvider";
 
 const NavigationBar = () => {
+  const {user,logOut,userDetails} = useContext(AuthContext);
+
+ 
+  console.log(user)
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
@@ -23,11 +29,20 @@ const NavigationBar = () => {
         <ul className="lg:flex space-x-8 items-center font-bold hidden navbar-center">
           <li>
             <NavLink
-              to="/home"
+              to="/"
               title="Home"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
               Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/allToys"
+              title="All Toys"
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              All Toys
             </NavLink>
           </li>
           <li>
@@ -38,14 +53,39 @@ const NavigationBar = () => {
               Blog
             </NavLink>
           </li>
+          {
+            user && <li >
+            <NavLink
+              to="/addToy"
+              className={({ isActive }) => (isActive ? "active " : "default")}
+            >
+              Add A Toy
+            </NavLink>
+            <NavLink
+              to="/myToy"
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              My Toy
+            </NavLink>
+          </li>
+          }
         </ul>
         <div className="nav-end font-bold flex items-center">
-          <span>{<img className="rounded-full w-[60px]" alt="" />}</span>
+          <span>
+            {
+              user &&  ( <img src={user?.photoURL} title={user?.displayName} className='rounded-full w-[50px]' alt=""/>)
+            }
+          </span>
 
-          {/* <Link className='btn btn-primary'>Sign out</Link> */}
-          <Link className="btn btn-primary" to="/login">
+
+              {
+                user ?  <Link className='btn btn-primary' onClick={logOut}>Sign out</Link> : 
+                <Link className="btn btn-primary" to="/login">
             Login
           </Link>
+              }
+         
+          
 
           <Link className="btn btn-primary" to="/register">
             Register
@@ -93,7 +133,7 @@ const NavigationBar = () => {
                   <ul className="space-y-4">
                     <li>
                       <NavLink
-                        to="/home"
+                        to="/"
                         title="Home"
                         className={({ isActive }) =>
                           isActive ? "active" : "default"
@@ -102,6 +142,17 @@ const NavigationBar = () => {
                         Home
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink
+                        to="/allToys"
+                        title="All Toys"
+                        className={({ isActive }) =>
+                          isActive ? "active" : "default"
+                        }
+                      >
+                        All Toys
+                      </NavLink>
+                   </li>
                     <li>
                       <NavLink
                         to="/blog"
@@ -115,17 +166,34 @@ const NavigationBar = () => {
                       </NavLink>
                     </li>
 
-                    <li></li>
+                    {
+            user && <li>
+            <NavLink
+              to="/addToy"
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              Add A Toy
+            </NavLink>
+            <NavLink
+              to="/myToy"
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              My Toy
+            </NavLink>
+          </li>
+          }
                   </ul>
                   <div className="font-bold flex flex-col">
                     <span>
                       <img className="rounded-full w-1/2" alt="" />
                     </span>
 
-                    {/* <Link className='btn btn-primary w-1/3 mt-2' >Sign out</Link>  */}
-                    <Link className="btn btn-primary w-1/3 mt-2" to="login">
-                      Login
-                    </Link>
+
+                    <img src={user?.photoURL ? user.photoURL: ''} title={user?.displayName} className='rounded-full w-1/2' alt="" />
+                    {
+                      user ? <Link className='btn btn-primary w-1/3 mt-2' onClick={logOut}>Sign out</Link> :
+                      <Link className='btn btn-primary w-1/3 mt-2' to='login'>Login</Link>
+                    }
                   </div>
                 </nav>
               </div>

@@ -10,13 +10,13 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const auth =getAuth(app)
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
+  const {createUser,userDetails} = useContext(AuthContext);
   const [errors, setErrors] = useState('')
 
 
   const registerHandling = (event) => {
     event.preventDefault();
-
+    setErrors('')
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
