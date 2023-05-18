@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import loginLottie from "../../assets/login.json";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const {signInUser,signInWithGithub, signInWithGoogle} = useContext(AuthContext)
+  const [errors, setErrors] = useState('')
   const handleLogin = (event) => {
     event.preventDefault();
 
@@ -20,8 +24,40 @@ const Login = () => {
       password,
     };
     console.log(name, email, photo, password);
-    console.log(user);
+    signInUser(email, password)
+       .then(result =>{
+        const createdUser = result.user;
+        console.log(createdUser)
+        // navigate(from ,{replace: true})
+       })
+       .catch(error =>{
+
+        console.log(error);
+        setErrors(error.message)
+       })
+    // console.log(user);
+
   };
+  const handleGoogleSignIn = () =>{
+    signInWithGoogle()
+    .then(result => {
+        const loggedUser = result.user;
+        // navigate(from ,{replace: true})
+       
+        
+    })
+    .catch(error => console.log(error))
+}
+const handleGithubSignIn = () =>{
+    signInWithGithub()
+    .then(result => {
+        const loggedUser = result.user;
+        // navigate(from ,{replace: true})
+        
+    })
+    .catch(error => console.log(error))
+
+}
   return (
     <div className="min-h-screen register ">
       <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-3/4">

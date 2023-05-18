@@ -2,9 +2,18 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import loginLottie from "../../assets/login.json";
 import "./Register.css";
-import { FaGithub, FaGoogle } from "react-icons/fa";
 
+import { getAuth } from "firebase/auth";
+import app from "../../firebase/firebase.config";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+
+const auth =getAuth(app)
 const Register = () => {
+  const {createUser} = useContext(AuthContext);
+  const [errors, setErrors] = useState('')
+
+
   const registerHandling = (event) => {
     event.preventDefault();
 
@@ -21,28 +30,41 @@ const Register = () => {
       password,
     };
     console.log(name, email, photo, password);
-    console.log(user);
+    if(password.length < 6){
+      setErrors('Please add at least 6 characters in your password')
+      return;
+  }
+  
+  createUser(email,password,name,photo)
+.then(result =>{
+const createdUser= result.user;
+console.log(createdUser)
+// navigate(from ,{replace: true})
+// userDetails(name,photo)
+
+
+})
+.catch((error) =>{
+  setErrors(error.message)
+})
+    // console.log(user);
   };
   return (
-    <div className="min-h-screen register">
+    <div className="lg:h-[700px] py-10 register">
       <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-3/4">
         <div className="lg:w-full lg:ml-auto sm:h-96 ">
           <Lottie animationData={loginLottie} loop={true} />
         </div>
-        <div className="hero bg-white rounded-lg sm:mt-64 md:mt-0">
+        <div className="hero bg-white rounded-lg sm:mt-64 md:mt-0 py-2">
           <div className="hero-content flex-col py-0">
             <div className="text-center">
-              <h1 className="text-3xl font-bold title-text">Register</h1>
+              <h1 className="text-2xl font-bold title-text">Register</h1>
 
-              <span className="text-red-500 mx-auto">Errors</span>
-              <div>
-                        <p className='font-bold ml-6'>Sign in with: </p>
-                    <div className='text-center'>
-                    <button className="btn btn-primary hover:bg-pink-700 mr-1" ><Link><FaGoogle  className='text-white'/></Link></button>
-                    <button  className="btn btn-primary hover:bg-pink-700" ><Link><FaGithub  className='text-white'/></Link></button>
-                    </div>
-                    <div className="divider mb-0">OR</div>
-            </div>
+              
+              
+
+                    <span className="text-red-500 mx-auto">{errors}</span>
+            
             </div>
             <div className="card w-96 mt-0">
               <form className="card-body p-0" onSubmit={registerHandling}>
@@ -94,7 +116,7 @@ const Register = () => {
                     required
                   />
                 </div>
-                <div className="form-control mt-3">
+                <div className="form-control mt-2">
                   <button className="rounded-md w-1/2 mx-auto px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-white">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-purple-700 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <input
