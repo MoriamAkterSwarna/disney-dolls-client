@@ -5,6 +5,7 @@ import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Blog from "../Pages/Blog/Blog";
 import Banner from "../Pages/Banner/Banner";
+import Gallary from "../Pages/Gallary/Gallary";
 
 
 
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
         {
           path: '/',
           element: <Banner></Banner>
+        },
+        {
+          path: '/',
+          element: <Gallary></Gallary>
         },
         {
             path: '/login',
