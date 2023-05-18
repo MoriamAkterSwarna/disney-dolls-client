@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 const MyToysTable = ({myToys}) => {
     // console.log({myToys});
-    const {description ,name, email, picture, quantity,price, rating, toyName, _id} = myToys
+    const {description ,name, email, picture, quantity,price, rating, toyName, _id} = myToys;
 
     return (
         
