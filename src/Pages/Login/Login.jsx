@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import loginLottie from "../../assets/login.json";
 import { FaGithub, FaGoogle } from "react-icons/fa";
@@ -7,43 +7,40 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const {signInUser,signInWithGithub, signInWithGoogle} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const location = useLocation()
   const [errors, setErrors] = useState('')
+
+  const from = location.state?.from.pathname || '/'
   const handleLogin = (event) => {
     event.preventDefault();
 
     setErrors('')
     const form = event.target;
-    const name = form.name.value;
     const email = form.email.value;
-    const photo = form.photo.value;
+    
     const password = form.password.value;
 
-    const user = {
-      name,
-      email,
-      photo,
-      password,
-    };
-    console.log(name, email, photo, password);
+    console.log( email,  password);
     signInUser(email, password)
        .then(result =>{
         const createdUser = result.user;
         console.log(createdUser)
-        // navigate(from ,{replace: true})
+        navigate(from ,{replace: true})
        })
        .catch(error =>{
 
         console.log(error);
         setErrors(error.message)
        })
-    // console.log(user);
+   
 
   };
   const handleGoogleSignIn = () =>{
     signInWithGoogle()
     .then(result => {
         const loggedUser = result.user;
-        // navigate(from ,{replace: true})
+        navigate(from ,{replace: true})
        
         
     })
@@ -53,7 +50,7 @@ const handleGithubSignIn = () =>{
     signInWithGithub()
     .then(result => {
         const loggedUser = result.user;
-        // navigate(from ,{replace: true})
+        navigate(from ,{replace: true})
         
     })
     .catch(error => console.log(error))
@@ -70,7 +67,7 @@ const handleGithubSignIn = () =>{
             <div className="text-center">
               <h1 className="text-3xl font-bold title-text">Login Please</h1>
 
-              <span className="text-red-500 mx-auto">Errors</span>
+              <span className="text-red-500 mx-auto">{errors}</span>
             </div>
 
             <div>

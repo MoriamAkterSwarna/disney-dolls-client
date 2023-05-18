@@ -1,18 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import loginLottie from "../../assets/login.json";
 import "./Register.css";
 
 import { getAuth } from "firebase/auth";
 import app from "../../firebase/firebase.config";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const auth =getAuth(app)
 const Register = () => {
   const {createUser,userDetails} = useContext(AuthContext);
   const [errors, setErrors] = useState('')
+  const navigate = useNavigate();
+  const location = useLocation()
+  
 
+  const from = location.state?.from.pathname || '/'
 
   const registerHandling = (event) => {
     event.preventDefault();
@@ -23,12 +27,6 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
 
-    const user = {
-      name,
-      email,
-      photo,
-      password,
-    };
     console.log(name, email, photo, password);
     if(password.length < 6){
       setErrors('Please add at least 6 characters in your password')
@@ -39,8 +37,8 @@ const Register = () => {
 .then(result =>{
 const createdUser= result.user;
 console.log(createdUser)
-// navigate(from ,{replace: true})
-// userDetails(name,photo)
+navigate(from ,{replace: true})
+userDetails(name,photo)
 
 
 })

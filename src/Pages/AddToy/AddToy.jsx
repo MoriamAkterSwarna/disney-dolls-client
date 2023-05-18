@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
-const AddToy = () => {
+const AddToy = () => { 
+  const {user} = useContext(AuthContext)
+  // console.log({user})
     const handleAddAToy = event =>{
         event.preventDefault();
         const form = event.target;
@@ -11,6 +14,9 @@ const AddToy = () => {
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
+        const email = user?.email;
+        const name = user?.displayName;
+        console.log(email, name)
 
         const toyAllInfo = {
             picture,
@@ -18,10 +24,22 @@ const AddToy = () => {
             price,
             rating,
             quantity, 
-            description
+            description,
+            email,
+            name
         }
 
         console.log(toyAllInfo)
+        fetch('http://localhost:5000/addToy' ,{
+          method: 'POST',
+          headers: {
+            'content-type' : 'application/json'
+          },
+          body: JSON.stringify(toyAllInfo)
+
+        })
+        .then(res => res.json())
+        .then(data => {console.log(data)})
     }
     return (
         <div className='my-10'>

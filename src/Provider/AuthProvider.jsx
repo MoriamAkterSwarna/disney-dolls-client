@@ -5,9 +5,6 @@ import app from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app)
-
-import React from 'react';
-
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loader, setLoader] = useState(true)
