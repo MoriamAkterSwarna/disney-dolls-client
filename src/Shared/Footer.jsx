@@ -11,13 +11,14 @@ const Footer = () => {
   <div>
     <img src={logo} className='w-[60px] rounded-full' alt="" />
     <p>Disney Magic Toys Ltd.<br/>Providing reliable toys for babies.</p>
+    <div className="divider"></div> 
+  <p>Copyright &copy; 2023 - All right reserved by <span className='text-blue-600'>Moriam Akter Swarna</span></p>
   </div> 
   <div>
-    <span className="footer-title">Services</span> 
-    <Link className="link link-hover">Branding</Link> 
-    <Link className="link link-hover">Design</Link> 
-    <Link className="link link-hover">Marketing</Link> 
-    <Link className="link link-hover">Advertisement</Link>
+    <span className="footer-title">Contact Information: </span> 
+    <p>Address: 4/3 Block B, Lalmatia, Dhaka</p>
+    <p>Phone: 01309209099</p>
+    <p>Email: moriam15-12880@diu.edu.bd</p>
   </div> 
   <div>
     <span className="footer-title">Company</span> 
@@ -26,19 +27,22 @@ const Footer = () => {
     <Link className="link link-hover">Pricing</Link> 
     
   </div> 
-  <div className="divider lg:divider-horizontal"></div> 
+  
   <div>
     <span className="footer-title">Social: </span> 
     <div className="grid grid-flow-col gap-4 text-blue-500">
-      <a href="https://web.facebook.com/mariam.swarna.76" target='blank'><FaFacebook></FaFacebook></a>
-      <a href="https://github.com/MoriamAkterSwarna" target='blank'><FaGithub></FaGithub></a>
-      <a href="https://www.linkedin.com/in/moriamakterswarna/" target='blank'><FaLinkedin></FaLinkedin></a>
-      <a href="https://twitter.com/MoriamSwarna" target='blank'><FaTwitter></FaTwitter></a>
+      <a href="https://web.facebook.com/mariam.swarna.76" target='blank'><FaFacebook className='h-10 w-10'></FaFacebook></a>
+      <a href="https://github.com/MoriamAkterSwarna" target='blank'><FaGithub className='h-10 w-10'></FaGithub></a>
+      <a href="https://www.linkedin.com/in/moriamakterswarna/" target='blank'><FaLinkedin className='h-10 w-10'></FaLinkedin></a>
+      <a href="https://twitter.com/MoriamSwarna" target='blank'><FaTwitter className='h-10 w-10'></FaTwitter></a>
      
       
     </div>
   </div>
+  
+  
 </footer>
+
         </div>
     );
 };
