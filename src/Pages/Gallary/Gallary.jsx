@@ -1,20 +1,27 @@
 import React from 'react';
 
+import gallery1 from '../../assets/gallery/gallery1.jpg'
+import gallery2 from '../../assets/gallery/gallery-2.jpg'
+import gallery3 from '../../assets/gallery/gallery-3.jpg'
+import gallery4 from '../../assets/gallery/gallery4.jpg'
+import gallery5 from '../../assets/gallery/gallery5.jpg'
+import gallery6 from '../../assets/gallery/gallery6.jpg'
 const Gallary = () => {
     return (
        
-    <div className="container mx-auto"> 
-  
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <img className="w-full h-full object-cover" src="/path/to/image1.jpg" alt="Image 1" />
-        <img className="w-full h-full object-cover" src="/path/to/image2.jpg" alt="Image 2" />
-        <img className="w-full h-full object-cover" src="/path/to/image3.jpg" alt="Image 3" />
-        <img className="w-full h-full object-cover" src="/path/to/image4.jpg" alt="Image 4" />
-        <img className="w-full h-full object-cover" src="/path/to/image5.jpg" alt="Image 5" />
-        <img className="w-full h-full object-cover" src="/path/to/image6.jpg" alt="Image 6" />
-      </div> */}
-      Gallery
+   <div className='my-8'>
+    <h2 className='text-center text-6xl mb-6'> Toy Gallery</h2>
+    <div className="container mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
+        <img className="h-[295px] w-[440px] object-cover shadow-lg rounded-lg border-2 p-3" src={gallery1} alt="Image 1" />
+        <img className="h-[295px] w-[440px] object-cover shadow-lg rounded-lg border-2 p-3" src={gallery2} alt="Image 2" />
+        <img className="h-[295px] w-[440px] object-cover shadow-lg rounded-lg border-2 p-3" src={gallery3} alt="Image 3" />
+        <img className="h-[295px] w-[440px] object-cover shadow-lg rounded-lg border-2 p-3" src={gallery4} alt="Image 4" />
+        <img className="h-[295px] w-[440px]  object-cover shadow-lg rounded-lg border-2 p-3" src={gallery5} alt="Image 5" />
+        <img className="h-[295px] w-[440px]  object-cover shadow-lg rounded-lg border-2 p-3" src={gallery6} alt="Image 6" />
+      </div>
     </div>
+   </div>
   );
 };
 

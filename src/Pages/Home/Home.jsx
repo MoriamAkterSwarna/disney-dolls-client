@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationBar from '../../Shared/NavigationBar';
 
 
+
 const Home = () => {
     return (
         <div>
