@@ -7,7 +7,7 @@ const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <div className="bg-violet-100 flex justify-between items-center mt-0 p-5 rounded sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
+      <div className="bg-blue-100 flex justify-between items-center mt-0 p-5 rounded sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
         <Link
           to="/home"
           className="inline-flex items-center relative navbar-start"
