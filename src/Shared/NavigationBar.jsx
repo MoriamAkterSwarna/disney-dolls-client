@@ -15,7 +15,7 @@ const NavigationBar = () => {
     <>
       <div className="bg-blue-100 flex justify-between items-center mt-0 p-5 rounded sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
         <Link
-          to="/home"
+          to="/"
           className="inline-flex items-center relative navbar-start"
         >
           <>

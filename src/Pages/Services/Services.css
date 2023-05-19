@@ -1,0 +1,22 @@
+.cute-doll{
+    background: url('../../assets/toys/toy2.jpg');
+    height: 400px;
+    background-position: center;
+    width: 100%;
+    object-fit: fill;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken, luminosity;
+    opacity: 0.9;
+}
+.on-sale{
+    background: url('../../assets/toys/toy1.jpg');
+    height: 400px;
+    background-position: center;
+    width: 100%;
+    object-fit: fill;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken, luminosity;
+    opacity: 0.9;
+}

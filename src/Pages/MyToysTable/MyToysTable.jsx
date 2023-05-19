@@ -4,14 +4,15 @@ import { AiFillDelete } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const MyToysTable = ({myToys}) => {
-    // console.log({myToys});
-    const {description ,name, email, picture, quantity,price, rating, toyName, _id} = myToys;
-    const [toys, setToys] = useState([myToys]);
-    // console.log(toys)
+    const {description ,name, email, picture, quantity,price, rating, toyName, _id,selectedOptions} = myToys;
+    // console.log( selectedOptions)
+   const [toys, setToys] = useState([myToys]);
+  //  console.log(myToys)
+    
+  
 
     const handleDelete = (id) =>{
 
-      // console.log(id)
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -54,6 +55,7 @@ const MyToysTable = ({myToys}) => {
         <td>{price}</td>
         <td>{rating}</td>
         <td>{quantity}</td>
+        {/* {selectedOptions.map = option => <td>{option}</td>} */}
 
         <td><button><Link to={`/updateToy/${_id}`}><FaEdit className='h-7 w-7 text-blue-600'></FaEdit></Link></button></td>
         <td><button onClick={()=>handleDelete(_id)}><AiFillDelete className='h-7 w-7 text-red-600'></AiFillDelete></button></td>

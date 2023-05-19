@@ -8,19 +8,18 @@ import app from "../../firebase/firebase.config";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
-const auth =getAuth(app)
+const auth = getAuth(app);
 const Register = () => {
-  const {createUser,userDetails} = useContext(AuthContext);
-  const [errors, setErrors] = useState('')
+  const { createUser, userDetails } = useContext(AuthContext);
+  const [errors, setErrors] = useState("");
   const navigate = useNavigate();
-  const location = useLocation()
-  
+  const location = useLocation();
 
-  const from = location.state?.from.pathname || '/'
+  const from = location.state?.from.pathname || "/";
 
   const registerHandling = (event) => {
     event.preventDefault();
-    setErrors('')
+    setErrors("");
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -28,23 +27,21 @@ const Register = () => {
     const password = form.password.value;
 
     console.log(name, email, photo, password);
-    if(password.length < 6){
-      setErrors('Please add at least 6 characters in your password')
+    if (password.length < 6) {
+      setErrors("Please add at least 6 characters in your password");
       return;
-  }
-  
-  createUser(email,password,name,photo)
-.then(result =>{
-const createdUser= result.user;
-console.log(createdUser)
-navigate(from ,{replace: true})
-userDetails(name,photo)
+    }
 
-
-})
-.catch((error) =>{
-  setErrors(error.message)
-})
+    createUser(email, password, name, photo)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        navigate(from, { replace: true });
+        userDetails(name, photo);
+      })
+      .catch((error) => {
+        setErrors(error.message);
+      });
     // console.log(user);
   };
   return (
@@ -58,11 +55,7 @@ userDetails(name,photo)
             <div className="text-center">
               <h1 className="text-2xl font-bold title-text">Register</h1>
 
-              
-              
-
-                    <span className="text-red-500 mx-auto">{errors}</span>
-            
+              <span className="text-red-500 mx-auto">{errors}</span>
             </div>
             <div className="card w-96 mt-0">
               <form className="card-body p-0" onSubmit={registerHandling}>
@@ -135,7 +128,6 @@ userDetails(name,photo)
                   <span className="text-xl ml-1 font-bold">Login Here</span>
                 </Link>
               </p>
-             
             </div>
           </div>
         </div>
