@@ -8,6 +8,7 @@ import Banner from "../Pages/Banner/Banner";
 import AddToy from "../Pages/AddToy/AddToy";
 import MyToys from "../Pages/MyToys/MyToys";
 import AllToys from "../assets/allToys/AllToys";
+import UpdateToy from "../assets/UpdateToy/UpdateToy";
 
 
 
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
         {
           path: '/allToys',
           element: <AllToys></AllToys>
+        },
+        {
+          path: '/updateToy/:id',
+          element: <UpdateToy></UpdateToy>,
+          loader: ({params}) => fetch(`http://localhost:5000/addToy/${params.id}`)
         }
 
        
