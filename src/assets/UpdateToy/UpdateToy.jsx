@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
+import { useLoaderData } from 'react-router-dom';
 
 const UpdateToy = () => {
-    const {user} = useContext(AuthContext);
+    const mToys = useLoaderData()
+    const {_id} = mToys;
+  //   console.log({_id})
+  // console.log(mToys)
     const handleUpdateAToy = event =>{
         event.preventDefault();
 
@@ -11,12 +14,12 @@ const UpdateToy = () => {
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        const id = user?._id
+        
         const updatedToy ={
             price, rating, quantity, description
         }
         console.log(updatedToy) 
-        fetch(`http://localhost:5000/addToy/${id}`,{
+        fetch(`http://localhost:5000/addToy/${_id}`,{
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
