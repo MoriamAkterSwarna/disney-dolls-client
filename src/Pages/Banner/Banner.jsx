@@ -5,6 +5,7 @@ import banner3 from '../../assets/banner/banner3.jpg'
 import Gallary from '../Gallary/Gallary';
 import Testimonials from '../Testimonials/Testimonials';
 import Services from '../Services/Services';
+import CategoryTab from '../CategoryTab/CategoryTab';
 
 const Banner = () => {
     return (
@@ -28,6 +29,7 @@ const Banner = () => {
   
 </div>
 <Gallary></Gallary>
+<CategoryTab></CategoryTab>
 <div>
   <h1 className='text-center text-5xl font-bold'>Clients Feedback About us: </h1>
 <Testimonials></Testimonials>
