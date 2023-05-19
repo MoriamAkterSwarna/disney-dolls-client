@@ -7,8 +7,9 @@ import Blog from "../Pages/Blog/Blog";
 import Banner from "../Pages/Banner/Banner";
 import AddToy from "../Pages/AddToy/AddToy";
 import MyToys from "../Pages/MyToys/MyToys";
-import AllToys from "../assets/allToys/AllToys";
-import UpdateToy from "../assets/UpdateToy/UpdateToy";
+import AllToys from "../Pages/AllToys/AllToys";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import SingleToy from "../Pages/SingleToy/SingleToy";
 
 
 
@@ -53,6 +54,12 @@ const router = createBrowserRouter([
           path: '/updateToy/:id',
           element: <UpdateToy></UpdateToy>,
           loader: ({params}) => fetch(`http://localhost:5000/addToy/${params.id}`)
+        },
+        {
+          path: '/singleToy/:id',
+          element: <SingleToy></SingleToy>,
+          loader: ({params}) => fetch(`http://localhost:5000/addToy/${params.id}`)
+
         }
 
        
