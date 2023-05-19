@@ -15,17 +15,17 @@ const AllToys = () => {
             <h2 className='text-4xl text-center my-4'>All Toys: {allToys.length}</h2>
 
             <div className="overflow-x-auto">
-  <table className="table w-full">
+  <table className="table w-full mx-10">
     {/* head */}
     <thead>
       <tr>
         <th>Toy Name</th>
         <th>Seller Name</th>
         <th>Picture</th>
-        <th>Description</th>
         <th>Price</th>
         <th>Rating</th>
         <th>Quantity</th>
+        <th>Sub-Category</th>
         <th>Details</th>
         
       </tr>

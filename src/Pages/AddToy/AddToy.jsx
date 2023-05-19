@@ -5,8 +5,10 @@ import Select from "react-select";
 
 const options = [
   { value: "Disney Princess Dolls", label: "Disney Princess Dolls" },
-  { value: "Frozen Dolls", label: "Frozen Dolls:" },
-  { value: "Disney Fairies Dolls", label: "Disney Fairies Dolls:" },
+  { value: "Frozen Dolls", label: "Frozen Dolls" },
+  { value: "Disney Fairies Dolls", label: "Disney Fairies Dolls" },
+  { value: "Classic Character Dolls", label: "Classic Character Dolls" },
+  { value: "Villain Dolls", label: "Villain Dolls" },
 ];
 const AddToy = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -81,7 +83,7 @@ const AddToy = () => {
 
         <div className="form-control lg:w-2/3">
           <label className="label">
-            <span className="label-text">Name</span>
+            <span className="label-text">Toy Name</span>
           </label>
           <input
             type="text"
@@ -117,6 +119,30 @@ const AddToy = () => {
         </div>
         <div className="form-control lg:w-2/3">
           <label className="label">
+            <span className="label-text">Seller Name</span>
+          </label>
+          <input
+            type="text"
+            name="seller"
+            defaultValue={user?.displayName}
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control lg:w-2/3">
+          <label className="label">
+            <span className="label-text">Seller Email</span>
+          </label>
+          <input
+            type="text"
+            name="sellerEmail"
+            defaultValue={user?.email}
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control lg:w-2/3">
+          <label className="label">
             <span className="label-text">Quantity</span>
           </label>
           <input
@@ -141,7 +167,7 @@ const AddToy = () => {
           </label>
           <textarea
             name="description"
-            className="border"
+            className="border p-2 rounded"
             id=""
             cols="10"
             rows="5"

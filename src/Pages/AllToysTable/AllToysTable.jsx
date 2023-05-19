@@ -3,12 +3,14 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import { AiFillStar} from "react-icons/ai";
 const AllToysTable = ({ allToys }) => {
   const handleToast = () =>{
     toast("You need to log in first")
   }
   // console.log({allToys})
   const {
+    selectedOptions,
     description,
     name,
     email,
@@ -28,8 +30,11 @@ const AllToysTable = ({ allToys }) => {
       </td>
       {/* <td>{description}</td> */}
       <td>{price}</td>
-      <td>{rating}</td>
+      <td>{rating}<AiFillStar className="text-orange-500"></AiFillStar></td>
       <td>{quantity}</td>
+      {
+          selectedOptions?.map(item=><td>{item.value}</td>)
+        }
       <td>
         <button onClick={handleToast}>
           <Link to={`/singleToy/${_id}`}>

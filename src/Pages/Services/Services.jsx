@@ -35,14 +35,14 @@ const Services = () => {
 
             <div data-aos="zoom-in" data-aos-easing="ease-in-sine" data-aos-duration="600" className='grid grid-cols-1 lg:grid-cols-2 mt-10 gap-10 mx-12'>
                 <div className='cute-doll rounded-2xl'>
-                    <h2 className='text-center text-7xl font-bold p-2 rounded-lg mt-20 bg-indigo-500 w-1/2 mx-auto'>Cute Toy</h2>
+                    <h2 data-aos="flip-left" data-aos-easing="ease-in-sine" data-aos-duration="1000" className='text-center text-5xl font-bold p-2 rounded-lg mt-20 bg-indigo-500 w-1/2 mx-auto'>Cute Toy</h2>
                     
                     <h5 className='bg-blue-500 mt-2 mx-auto w-1/2 p-3 rounded'>Latest Collection</h5>
                     <button className='bg-rose-500 mt-2 lg:ml-56 px-3 py-2 rounded-3xl text-white'>SHOP NOW</button>
                 </div>
                 <div data-aos="zoom-in" data-aos-easing="ease-in-sine" data-aos-duration="1200" className='on-sale rounded-2xl'>
             
-                    <h2 className='text-5xl font-bold p-2 rounded-lg mt-28 bg-purple-500 w-1/3 ml-4'>On Sale</h2>
+                    <h2 data-aos="flip-right" data-aos-easing="ease-in-sine" data-aos-duration="1500" className='text-5xl font-bold p-2 rounded-lg mt-28 bg-purple-500 w-1/3 ml-4'>On Sale</h2>
                     
                     <h5 className='bg-violet-600 mt-2 w-1/3 ml-4 p-2 rounded'>Latest Collection</h5>
                     <button className='bg-rose-500 mt-2 ml-4 px-3 py-2 rounded-3xl text-white'>SHOP NOW</button>

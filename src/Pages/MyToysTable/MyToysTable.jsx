@@ -51,11 +51,13 @@ const MyToysTable = ({myToys}) => {
             <tr>
         <th>{toyName}</th>
         <td>{name}</td>
-        <td><img className='w-[60px] rounded-full' src={picture} alt="" /></td>
+        <td><img className='w-28 rounded-full' src={picture} alt="" /></td>
         <td>{price}</td>
         <td>{rating}</td>
         <td>{quantity}</td>
-        {/* {selectedOptions.map = option => <td>{option}</td>} */}
+        {
+          selectedOptions?.map(item=><td>{item.value}</td>)
+        }
 
         <td><button><Link to={`/updateToy/${_id}`}><FaEdit className='h-7 w-7 text-blue-600'></FaEdit></Link></button></td>
         <td><button onClick={()=>handleDelete(_id)}><AiFillDelete className='h-7 w-7 text-red-600'></AiFillDelete></button></td>

@@ -19,7 +19,7 @@ const NavigationBar = () => {
           className="inline-flex items-center relative navbar-start"
         >
           <>
-          <img className="w-[50px] rounded-full" src={logo} alt="" />
+          <img className="w-[60px] rounded-full" src={logo} alt="" />
           <span className="title-text ml-2 text-2xl font-bold tracking-wide text-gray-800">
             Disney Magic Toys
           </span></>
@@ -73,7 +73,7 @@ const NavigationBar = () => {
         <div className="nav-end font-bold flex items-center">
           <span>
             {
-              user &&  ( <img src={user?.photoURL} title={user?.displayName} className='rounded-full w-[50px]' alt=""/>)
+              user &&  ( <img src={user?.photoURL} title={user?.displayName} className='rounded-full w-24 mr-2' alt=""/>)
             }
           </span>
 
