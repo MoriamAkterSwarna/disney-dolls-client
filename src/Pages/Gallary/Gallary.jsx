@@ -9,9 +9,7 @@ import gallery6 from "../../assets/gallery/gallery6.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 const Gallary = () => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
+ 
   return (
     <div className="my-8">
       <h2 className="text-center text-6xl mb-6"> Toy Gallery</h2>

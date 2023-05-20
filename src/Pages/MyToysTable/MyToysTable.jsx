@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const MyToysTable = ({myToys}) => {
     const {description ,name, email, picture, quantity,price, rating, toyName, _id,category} = myToys;
-    // console.log( selectedOptions)
+    
    const [toys, setToys] = useState([myToys]);
-  //  console.log(myToys)
+  
     
   
 
@@ -24,7 +24,7 @@ const MyToysTable = ({myToys}) => {
       }).then((result) => {
         if (result.isConfirmed) {
           console.log("delete")
-          fetch(`http://localhost:5000/addToy/${_id}`,
+          fetch(`https://disney-dolls-server-snowy.vercel.app/addToy/${_id}`,
           {
             method: 'DELETE',
             
@@ -39,7 +39,7 @@ const MyToysTable = ({myToys}) => {
                   'Your file has been deleted.',
                   'success'
                 )
-                const remainingToys = toys.filter(toy => toy._id !== _id)
+                const remainingToys = toys.filter(toy => toy._id !== id)
                 setToys(remainingToys)
             }
           })

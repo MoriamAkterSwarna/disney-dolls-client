@@ -7,7 +7,7 @@ const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
-    fetch("http://localhost:5000/addToy")
+    fetch("https://disney-dolls-server-snowy.vercel.app/addToy")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -15,7 +15,7 @@ const AllToys = () => {
       });
   }, []);
   const handleSearch = () => {
-    fetch(`http://localhost:5000/searchToy/${search}`)
+    fetch(`https://disney-dolls-server-snowy.vercel.app/searchToy/${search}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaGifts, FaShippingFast } from 'react-icons/fa';
 import { GiReturnArrow} from "react-icons/gi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import './Services.css'
 const Services = () => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
     return (
         <div className='my-10'>
             <h1 className='text-4xl font-bold text-center'>Our Services</h1>

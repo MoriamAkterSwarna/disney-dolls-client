@@ -54,12 +54,12 @@ const router = createBrowserRouter([
         {
           path: '/updateToy/:id',
           element: <UpdateToy></UpdateToy>,
-          loader: ({params}) => fetch(`http://localhost:5000/addToy/${params.id}`)
+          loader: ({params}) => fetch(`https://disney-dolls-server-snowy.vercel.app/addToy/${params.id}`)
         },
         {
           path: '/singleToy/:id',
           element: <PrivateRouter><SingleToy></SingleToy></PrivateRouter>,
-          loader: ({params}) => fetch(`http://localhost:5000/addToy/${params.id}`)
+          loader: ({params}) => fetch(`https://disney-dolls-server-snowy.vercel.app/addToy/${params.id}`)
 
         }
 

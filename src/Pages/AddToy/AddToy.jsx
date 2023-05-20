@@ -37,7 +37,7 @@ const AddToy = () => {
     };
 
     console.log(toyAllInfo);
-    fetch("http://localhost:5000/addToy", {
+    fetch("https://disney-dolls-server-snowy.vercel.app/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",

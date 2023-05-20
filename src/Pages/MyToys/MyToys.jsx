@@ -12,7 +12,7 @@ const MyToys = () => {
   const [sortPrice, setSortPrice] =useState('')
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addToy?email=${user?.email}&sortPrice=${sortPrice}`)
+    fetch(`https://disney-dolls-server-snowy.vercel.app/addToy?email=${user?.email}&sortPrice=${sortPrice}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

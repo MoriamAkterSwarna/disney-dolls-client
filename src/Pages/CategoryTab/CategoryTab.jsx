@@ -9,7 +9,7 @@ const CategoryTab = () => {
   const [subCategoryThree, setSubCategoryThree] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addToy`)
+    fetch(`https://disney-dolls-server-snowy.vercel.app/addToy`)
       .then((res) => res.json())
       .then((data) => {
         const subCategory1 = data.filter(item => item.category === "Frozen Dolls");
