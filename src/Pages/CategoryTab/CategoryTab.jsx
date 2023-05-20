@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Category1 from "./Category1/Category1";
+
+
 const CategoryTab = () => {
+
+  
   const [active, setActive] = useState(0);
   const [subCategoryOne, setSubCategoryOne] = useState([]);
   const [subCategoryTwo, setSubCategoryTwo] = useState([]);

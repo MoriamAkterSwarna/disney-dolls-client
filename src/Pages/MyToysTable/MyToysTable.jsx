@@ -3,28 +3,28 @@ import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-const MyToysTable = ({myToys}) => {
-    const {description ,name, email, picture, quantity,price, rating, toyName, _id,category} = myToys;
+const MyToysTable = ({myToys,myToy,setMyToys}) => {
+    const {description ,name, email, picture, quantity,price, rating, toyName, _id,category} = myToy;
     
-   const [toys, setToys] = useState([myToys]);
+  //  const [toys, setToys] = useState([myToys]);
   
     
   
 
     const handleDelete = (id) =>{
-
+console.log(id)
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#e03836',
+        cancelButtonColor: '#d73',
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
           console.log("delete")
-          fetch(`https://disney-dolls-server-snowy.vercel.app/addToy/${_id}`,
+          fetch(`https://disney-dolls-server-snowy.vercel.app/addToy/${id}`,
           {
             method: 'DELETE',
             
@@ -36,11 +36,11 @@ const MyToysTable = ({myToys}) => {
             {
               Swal.fire(
                   'Deleted!',
-                  'Your file has been deleted.',
+                  'Your Toy has been deleted.',
                   'success'
                 )
-                const remainingToys = toys.filter(toy => toy._id !== id)
-                setToys(remainingToys)
+                const remainingToys = myToys.filter(toy => toy._id !== id)
+                setMyToys(remainingToys)
             }
           })
         }

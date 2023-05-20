@@ -47,8 +47,8 @@ const MyToys = () => {
     </thead>
     <tbody>
       
-    {myToys.map((myToys) => (
-          <MyToysTable key={myToys._id} myToys={myToys}></MyToysTable>
+    {myToys.map((myToy) => (
+          <MyToysTable key={myToy._id} myToy={myToy} myToys={myToys} setMyToys={setMyToys}></MyToysTable>
         ))}
       
     </tbody>
