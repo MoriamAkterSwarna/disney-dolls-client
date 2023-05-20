@@ -3,8 +3,10 @@ import { Link, NavLink } from "react-router-dom";
 import { HiBars3CenterLeft, HiOutlineXMark } from "react-icons/hi2";
 import logo from '../assets/logo.png'
 import { AuthContext } from "../Provider/AuthProvider";
+import useTitle from "../hooks/useTitle";
 
 const NavigationBar = () => {
+  useTitle('Home')
   const {user,logOut,userDetails} = useContext(AuthContext);
 
  
@@ -13,7 +15,7 @@ const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <div className="bg-blue-100 flex justify-between items-center mt-0 p-5 rounded sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
+      <div className="bg-blue-100 flex mr-0 justify-between items-center mt-0 rounded sm:max-w-xl md:max-w-full md:px-24 lg:px-6 lg:py-4">
         <Link
           to="/"
           className="inline-flex items-center relative navbar-start"
@@ -201,7 +203,7 @@ const NavigationBar = () => {
           )}
         </div>
       </div>
-      <div></div>
+      
     </>
   );
 };

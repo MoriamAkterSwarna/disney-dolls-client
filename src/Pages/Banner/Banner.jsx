@@ -7,18 +7,19 @@ import Testimonials from '../Testimonials/Testimonials';
 import Services from '../Services/Services';
 import CategoryTab from '../CategoryTab/CategoryTab';
 
+
 const Banner = () => {
     return (
-        <div>
+        <div className='m-0'>
             <div className="carousel w-full">
   <div id="item1" className="carousel-item w-full">
-    <img src={banner3} className="w-[100%] object-cover h-[90vh]" />
+    <img src={banner3} className="w-full mr-0 object-cover h-[80vh]" />
   </div> 
   <div id="item2" className="carousel-item w-full">
-    <img src={banner2} className="w-[100%] object-cover h-[90vh]" />
+    <img src={banner2} className="w-full object-cover h-[80vh]" />
   </div> 
   <div id="item3" className="carousel-item w-full">
-    <img src={banner1} className="w-[100%] object-cover h-[90vh]" />
+    <img src={banner1} className="w-full object-cover h-[80vh]" />
   </div> 
   
 </div> 
@@ -36,6 +37,8 @@ const Banner = () => {
 </div>
 <Services></Services>
         </div>
+
+
     );
 };
 

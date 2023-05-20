@@ -1,19 +1,13 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import Select from "react-select";
+import useTitle from "../../hooks/useTitle";
 
-const options = [
-  { value: "Disney Princess Dolls", label: "Disney Princess Dolls" },
-  { value: "Frozen Dolls", label: "Frozen Dolls" },
-  { value: "Disney Fairies Dolls", label: "Disney Fairies Dolls" },
-  { value: "Classic Character Dolls", label: "Classic Character Dolls" },
-  { value: "Villain Dolls", label: "Villain Dolls" },
-];
 const AddToy = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  useTitle('Add Toy')
+  
   const { user } = useContext(AuthContext);
-  // console.log({user})
+ 
   const handleAddAToy = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -25,7 +19,8 @@ const AddToy = () => {
     const description = form.description.value;
     const email = user?.email;
     const name = user?.displayName;
-    const selectedOptions = selectedOption;
+ 
+    const category = form.category.value;
     console.log(email, name);
 
     const toyAllInfo = {
@@ -37,7 +32,8 @@ const AddToy = () => {
       description,
       email,
       name,
-      selectedOptions
+      
+      category
     };
 
     console.log(toyAllInfo);
@@ -154,12 +150,20 @@ const AddToy = () => {
           />
         </div>
         <div className="form-control lg:w-2/3">
-          <Select
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
-            options={options}
-            isMulti
-          />
+          
+          <select name="category" className="p-2 border-2 rounded">
+            <option value="Disney Princess Dolls">
+            Disney Princess Dolls
+            </option>
+            <option value="Frozen Dolls">
+            Frozen Dolls
+            </option>
+            
+            <option value="Villain Dolls">
+            Villain Dolls
+            </option>
+          </select>
+          
         </div>
         <div className="form-control lg:w-2/3">
           <label className="label">
@@ -174,7 +178,7 @@ const AddToy = () => {
           ></textarea>
         </div>
 
-        <div className="form-control m">
+        <div className="form-control lg:mr-80">
           <button className="rounded-md lg:w-1/2 lg:mx-64 px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-white">
             <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#5a189a] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
             <input

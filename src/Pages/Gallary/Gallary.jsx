@@ -15,7 +15,7 @@ const Gallary = () => {
   return (
     <div className="my-8">
       <h2 className="text-center text-6xl mb-6"> Toy Gallery</h2>
-      <div className="container mx-auto">
+      <div className="container px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
           <div data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="600">
             <img

@@ -1,29 +1,76 @@
-import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import React, { useEffect, useState } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import Category1 from "./Category1/Category1";
 const CategoryTab = () => {
-    return (
-        <>
-        <h3 className='text-blue-700 text-4xl text-center my-10 font-bold '>Shop By Category</h3>
-        <div className='mx-52 mb-10'>
-            <Tabs>
-    <TabList>
-      <Tab>Title 1</Tab>
-      <Tab>Title 2</Tab>
-      <Tab>Title 3</Tab>
-    </TabList>
+  const [active, setActive] = useState(0);
+  const [subCategoryOne, setSubCategoryOne] = useState([]);
+  const [subCategoryTwo, setSubCategoryTwo] = useState([]);
+  const [subCategoryThree, setSubCategoryThree] = useState([]);
 
-    <TabPanel>
-      <h2>Any content 1</h2>
-    </TabPanel>
-    <TabPanel>
-      <h2>Any content 2</h2>
-    </TabPanel>
-  </Tabs>
+  useEffect(() => {
+    fetch(`http://localhost:5000/addToy`)
+      .then((res) => res.json())
+      .then((data) => {
+        const subCategory1 = data.filter(item => item.category === "Frozen Dolls");
+        const subCategory2 = data.filter((item) => item.category === "Disney Princess Dolls");
+        const subCategory3 = data.filter((item) => item.category === "Villain Dolls");
+        setSubCategoryOne(subCategory1);
+        setSubCategoryTwo(subCategory2);
+        setSubCategoryThree(subCategory3);
+        
+      });
+  }, []);
 
-        </div>
-        </>
-    );
+  const handleSubCategory = (index) => {
+    setActive(index);
+
+  };
+
+  return (
+    <>
+      <h3 className="text-blue-700 text-4xl text-center my-10 font-bold ">
+        Shop By Category
+      </h3>
+      <div className="lg:mx-52 mb-10">
+
+
+        <Tabs selectedIndex={active} onSelect={handleSubCategory}>
+          <TabList className="my-3 lg:mx-20">
+            
+            <Tab className="btn mb-6 w-64 lg:w-[200px] btn-primary mr-2">Frozen Dolls</Tab>
+            <Tab className="btn mb-6 w-64 btn-primary mr-2">Disney Princess Dolls</Tab>
+            <Tab className="btn w-64 btn-primary">Villain Dolls</Tab>
+          </TabList>
+
+          <TabPanel>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {
+              subCategoryOne.map(subCate => <Category1 key={subCate._id} subCate={subCate}></Category1>)
+            }
+            </div>
+          </TabPanel>
+          
+
+          <TabPanel>
+          <div className="grid grid-cols-1  lg:grid-cols-2 gap-6">
+            {
+              subCategoryTwo.map(subCate => <Category1 key={subCate._id} subCate={subCate}></Category1>)
+            }
+            </div>
+          </TabPanel>
+          <TabPanel>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {
+              subCategoryThree.map(subCate => <Category1 key={subCate._id} subCate={subCate}></Category1>)
+            }
+            </div>
+          </TabPanel>
+        </Tabs>
+      </div>
+    </>
+  );
 };
 
 export default CategoryTab;
