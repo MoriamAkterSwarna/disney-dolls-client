@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Category3 = ({subCate}) => {
@@ -9,8 +9,8 @@ const Category3 = ({subCate}) => {
     const navigate = useNavigate()
     const {  picture, price, rating, toyName,} = subCate;
     const handleDetails = () =>{
-        toast("You need to log in first")
         if(!user){
+       toast("You need to log in first")
           setTimeout(() => {
             navigate('/login')
           }, 3000);
@@ -28,7 +28,9 @@ const Category3 = ({subCate}) => {
       <div className="badge p-3 badge-outline bg-yellow-500 border-yellow-500">Rating: {rating}</div>
     
     <div className="card-actions justify-end">
+    <Link to={`/singleToy/${_id}`}>
       <button onClick={handleDetails} className='btn bg-blue-500'>View Details</button>
+      </Link>
     </div>
   </div>
   <ToastContainer></ToastContainer>
