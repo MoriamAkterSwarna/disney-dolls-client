@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Category1 from "./Category1/Category1";
+import Category2 from "./Category2/Category2";
+import Category3 from "./Category3/Category3";
 
 
 const CategoryTab = () => {
@@ -51,7 +53,7 @@ const CategoryTab = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {
-              subCategoryOne.map(subCate => <Category1 key={subCate._id} subCate={subCate}></Category1>)
+              subCategoryOne.map(subCate => <Category2 key={subCate._id} subCate={subCate}></Category2>)
             }
             </div>
           </TabPanel>
@@ -67,7 +69,7 @@ const CategoryTab = () => {
           <TabPanel>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {
-              subCategoryThree.map(subCate => <Category1 key={subCate._id} subCate={subCate}></Category1>)
+              subCategoryThree.map(subCate => <Category3 key={subCate._id} subCate={subCate}></Category3>)
             }
             </div>
           </TabPanel>

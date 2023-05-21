@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Category3 = ({subCate}) => {
   const {user} = useContext(AuthContext)
     const navigate = useNavigate()
-    const {  picture, price, rating, toyName,} = subCate;
+    const {  picture, price, rating, toyName,_id} = subCate;
     const handleDetails = () =>{
         if(!user){
        toast("You need to log in first")

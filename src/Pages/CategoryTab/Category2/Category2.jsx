@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 const Category2 = ({subCate}) => {
   const {user} = useContext(AuthContext)
     const navigate = useNavigate()
-    const {  picture, price, rating, toyName,} = subCate;
+    const {  picture, price, rating, toyName,_id} = subCate;
     const handleDetails = () =>{
    
         if(!user){
