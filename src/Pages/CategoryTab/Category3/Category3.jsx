@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Category3 = ({subCate}) => {

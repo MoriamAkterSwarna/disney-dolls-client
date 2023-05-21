@@ -122,7 +122,7 @@ const AddToy = () => {
             name="seller"
             defaultValue={user?.displayName}
             className="input input-bordered"
-            required
+            required readOnly
           />
         </div>
         <div className="form-control lg:w-2/3">
@@ -134,7 +134,7 @@ const AddToy = () => {
             name="sellerEmail"
             defaultValue={user?.email}
             className="input input-bordered"
-            required
+            required readOnly
           />
         </div>
         <div className="form-control lg:w-2/3">
