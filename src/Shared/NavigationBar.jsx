@@ -1,30 +1,24 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
 import { HiBars3CenterLeft, HiOutlineXMark } from "react-icons/hi2";
-import logo from '../assets/logo.png'
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import logo from "../assets/logo.png";
 import useTitle from "../hooks/useTitle";
 
 const NavigationBar = () => {
-  useTitle('Home')
-  const {user,logOut,userDetails} = useContext(AuthContext);
+  useTitle("Home");
+  const { user, logOut, userDetails } = useContext(AuthContext);
 
- 
-  console.log(user)
+  console.log(user);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
       <div className="bg-blue-100 flex mr-0 justify-between items-center mt-0 rounded sm:max-w-xl md:max-w-full md:px-24 lg:px-6 lg:py-4">
-        <Link
-          to="/"
-          className="inline-flex items-center relative navbar-start"
-        >
+        <Link to="/" className="inline-flex items-center relative navbar-start">
           <>
-          <img className="w-[60px] rounded-full" src={logo} alt="" />
-          <span className="title-text ml-2 text-2xl font-bold tracking-wide text-gray-800">
-            Disney Magic Toys
-          </span></>
+            <img className="w-[60px] rounded-full" src={logo} alt="" />
+          </>
         </Link>
 
         {/* nav item */}
@@ -33,8 +27,7 @@ const NavigationBar = () => {
             <NavLink
               to="/"
               title="Home"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
+              className={({ isActive }) => (isActive ? "active" : "default")}>
               Home
             </NavLink>
           </li>
@@ -42,56 +35,61 @@ const NavigationBar = () => {
             <NavLink
               to="/allToys"
               title="All Toys"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
+              className={({ isActive }) => (isActive ? "active" : "default")}>
               All Toys
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/blog"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
+              className={({ isActive }) => (isActive ? "active" : "default")}>
               Blog
             </NavLink>
           </li>
-          {
-            user && <li >
+          {user && (
+            <><li>
             <NavLink
               to="/addToy"
-              className={({ isActive }) => (isActive ? "active " : "default")}
-            >
+              className={({ isActive }) =>
+                isActive ? "active" : "default"
+              }>
               Add A Toy
             </NavLink>
-            <NavLink
-              to="/myToy"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              My Toy
-            </NavLink>
+            
           </li>
-          }
+          <NavLink
+          to="/myToy"
+          className={({ isActive }) => (isActive ? "active" : "default")}>
+          My Toy
+        </NavLink></>
+          )}
         </ul>
         <div className="nav-end font-bold flex items-center">
           <span>
-            {
-              user &&  ( <img src={user?.photoURL} title={user?.displayName} className='rounded-full w-24 mr-2' alt=""/>)
-            }
+            {user && (
+              <img
+                src={user?.photoURL}
+                title={user?.displayName}
+                className="rounded-full w-24 mr-2"
+                alt=""
+              />
+            )}
           </span>
 
-
-              {
-                user ?  <Link className='btn btn-primary' onClick={logOut}>Sign out</Link> : 
-                <Link className="btn btn-primary" to="/login">
-            Login
-          </Link>
-              }
-         
-          
-
-          <Link className="btn btn-primary" to="/register">
-            Register
-          </Link>
+          {user ? (
+            <Link className="btn btn-primary" onClick={logOut}>
+              Sign out
+            </Link>
+          ) : (
+            <>
+              <Link className="btn btn-primary" to="/login">
+                Login
+              </Link>
+              <Link className="btn btn-primary" to="/register">
+                Register
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile nav menu  */}
@@ -100,8 +98,7 @@ const NavigationBar = () => {
           <button
             aria-label="Open Menu"
             title="Open Menu"
-            onClick={() => setIsMenuOpen(true)}
-          >
+            onClick={() => setIsMenuOpen(true)}>
             <HiBars3CenterLeft className="w-5 text-gray-600" />
           </button>
 
@@ -112,11 +109,16 @@ const NavigationBar = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <Link to="/" className="inline-flex items-center">
-                    <>
-                    <img className="w-[50px] rounded-full" src={logo} alt="" />
-                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Disney Magic Toys
-                      </span></>
+                      <>
+                        <img
+                          className="w-[50px] rounded-full"
+                          src={logo}
+                          alt=""
+                        />
+                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                          Disney Magic Toys
+                        </span>
+                      </>
                     </Link>
                   </div>
 
@@ -124,8 +126,7 @@ const NavigationBar = () => {
                     <button
                       aria-label="Close Menu"
                       title="Close Menu"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                      onClick={() => setIsMenuOpen(false)}>
                       <HiOutlineXMark className="w-5 text-gray-600" />
                     </button>
                   </div>
@@ -139,8 +140,7 @@ const NavigationBar = () => {
                         title="Home"
                         className={({ isActive }) =>
                           isActive ? "active" : "default"
-                        }
-                      >
+                        }>
                         Home
                       </NavLink>
                     </li>
@@ -150,11 +150,10 @@ const NavigationBar = () => {
                         title="All Toys"
                         className={({ isActive }) =>
                           isActive ? "active" : "default"
-                        }
-                      >
+                        }>
                         All Toys
                       </NavLink>
-                   </li>
+                    </li>
                     <li>
                       <NavLink
                         to="/blog"
@@ -162,40 +161,52 @@ const NavigationBar = () => {
                           isActive
                             ? "active font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
                             : "default font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
-                        }
-                      >
+                        }>
                         Blog
                       </NavLink>
                     </li>
 
-                    {
-            user && <li>
-            <NavLink
-              to="/addToy"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              Add A Toy
-            </NavLink>
-            <NavLink
-              to="/myToy"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              My Toy
-            </NavLink>
-          </li>
-          }
+                    {user && (
+                      <li>
+                        <NavLink
+                          to="/addToy"
+                          className={({ isActive }) =>
+                            isActive ? "active" : "default"
+                          }>
+                          Add A Toy
+                        </NavLink>
+                        <NavLink
+                          to="/myToy"
+                          className={({ isActive }) =>
+                            isActive ? "active" : "default"
+                          }>
+                          My Toy
+                        </NavLink>
+                      </li>
+                    )}
                   </ul>
                   <div className="font-bold flex flex-col">
                     <span>
                       <img className="rounded-full w-1/2" alt="" />
                     </span>
 
-
-                    <img src={user?.photoURL ? user.photoURL: ''} title={user?.displayName} className='rounded-full w-1/2' alt="" />
-                    {
-                      user ? <Link className='btn btn-primary w-1/3 mt-2' onClick={logOut}>Sign out</Link> :
-                      <Link className='btn btn-primary w-1/3 mt-2' to='login'>Login</Link>
-                    }
+                    <img
+                      src={user?.photoURL ? user.photoURL : ""}
+                      title={user?.displayName}
+                      className="rounded-full w-1/2"
+                      alt=""
+                    />
+                    {user ? (
+                      <Link
+                        className="btn btn-primary w-1/3 mt-2"
+                        onClick={logOut}>
+                        Sign out
+                      </Link>
+                    ) : (
+                      <Link className="btn btn-primary w-1/3 mt-2" to="login">
+                        Login
+                      </Link>
+                    )}
                   </div>
                 </nav>
               </div>
@@ -203,7 +214,6 @@ const NavigationBar = () => {
           )}
         </div>
       </div>
-      
     </>
   );
 };
