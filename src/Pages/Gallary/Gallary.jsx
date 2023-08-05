@@ -10,7 +10,14 @@ import gallery6 from "../../assets/gallery/gallery6.jpg";
 const Gallary = () => {
   return (
     <div className="my-8">
-      <h2 className="text-center text-6xl mb-6"> Toy Gallery</h2>
+      <>
+        <div className="divider w-1/3 mx-auto mt-6 bg-blue-500 h-1"></div>
+        <h2 className="text-center text-6xl mb-6 text-blue-600 font-bold">
+          {" "}
+          Toy Gallery
+        </h2>
+        <div className="divider w-1/3 mx-auto mt-6 bg-blue-500 h-1"></div>
+      </>
       <div className="container px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
           <div data-aos="fade-up" data-aos-duration="3000">

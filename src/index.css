@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.active{
-    @apply font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-pink-400 mr-2
-  }
-  
-  .default{
-    @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-pink-600 mr-2
-  }
-  .btn-primary{
-    @apply font-medium  transition duration-200  shadow-md  md:mb-0 px-2 py-2 md:p-3 mr-3  text-lg rounded-lg bg-gradient-to-tl from-pink-500 to-indigo-600 hover:from-teal-500 hover:to-blue-600
-  }
+.active {
+  @apply font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-pink-400 mr-2;
+}
+
+.default {
+  @apply font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-pink-600 mr-2;
+}
+.btn-primary {
+  @apply font-medium  transition duration-200  shadow-md  md:mb-0 px-2 py-2 md:p-3 mr-3  text-lg rounded-lg bg-gradient-to-tl from-pink-500 to-indigo-600 hover:from-teal-500 hover:to-blue-600;
+}

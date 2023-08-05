@@ -36,9 +36,13 @@ const CategoryTab = () => {
 
   return (
     <>
-      <h3 className="text-blue-700 text-4xl text-center my-10 font-bold ">
-        Shop By Category
-      </h3>
+      <>
+        <div className="divider w-1/3 mx-auto mt-10 bg-blue-500 h-1"></div>
+        <h3 className="text-blue-700 text-5xl text-center font-bold ">
+          Shop By Category
+        </h3>
+        <div className="divider w-1/3 mx-auto mt-6 bg-blue-500 h-1 mb-10"></div>
+      </>
       <div className="lg:mx-20 mb-10">
         <Tabs selectedIndex={active} onSelect={handleSubCategory}>
           <TabList className="my-3 lg:mx-20">
