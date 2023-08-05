@@ -14,7 +14,7 @@ const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <div className="bg-blue-100 flex mr-0 justify-between items-center mt-0 rounded sm:max-w-xl md:max-w-full md:px-24 lg:px-6 lg:py-4">
+      <div className=" flex mr-0justify-between items-center mt-0 rounded sm:max-w-xl md:max-w-full md:px-24 lg:px-6 lg:py-4 z-10">
         <Link to="/" className="inline-flex items-center relative navbar-start">
           <>
             <img className="w-[60px] rounded-full" src={logo} alt="" />
@@ -47,24 +47,25 @@ const NavigationBar = () => {
             </NavLink>
           </li>
           {user && (
-            <><li>
-            <NavLink
-              to="/addToy"
-              className={({ isActive }) =>
-                isActive ? "active" : "default"
-              }>
-              Add A Toy
-            </NavLink>
-            
-          </li>
-          <NavLink
-          to="/myToy"
-          className={({ isActive }) => (isActive ? "active" : "default")}>
-          My Toy
-        </NavLink></>
+            <>
+              <li>
+                <NavLink
+                  to="/addToy"
+                  className={({ isActive }) =>
+                    isActive ? "active" : "default"
+                  }>
+                  Add A Toy
+                </NavLink>
+              </li>
+              <NavLink
+                to="/myToy"
+                className={({ isActive }) => (isActive ? "active" : "default")}>
+                My Toy
+              </NavLink>
+            </>
           )}
         </ul>
-        <div className="nav-end font-bold flex items-center">
+        <div className="nav-end font-bold flex items-center ml-2">
           <span>
             {user && (
               <img

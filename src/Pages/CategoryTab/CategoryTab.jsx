@@ -37,7 +37,7 @@ const CategoryTab = () => {
   return (
     <>
       <>
-        <div className="divider w-1/3 mx-auto mt-10 bg-blue-500 h-1"></div>
+        <div className="divider w-1/3 mx-auto mt-20 bg-blue-500 h-1"></div>
         <h3 className="text-blue-700 text-5xl text-center font-bold ">
           Shop By Category
         </h3>
